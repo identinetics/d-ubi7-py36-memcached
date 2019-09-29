@@ -4,5 +4,5 @@ FROM registry.access.redhat.com/ubi7/python-36
 USER root
 
 RUN yum update -y \
- && yum -y install memcached \
+ && yum -y install memcached libmemcached \
  && yum clean all && rm -rf /var/cache/yum
