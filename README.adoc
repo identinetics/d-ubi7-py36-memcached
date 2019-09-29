@@ -1,7 +1,7 @@
-= Docker Base Image for 'RHEL 7 + Python 3.6 + memcached
+= Docker Base Image for 'RHEL 7 + Python 3.6 + memcached + php7.2
 
 This image is a work-around for legacy VMs that build on Centos7,
-but cannot run `yum install memcached` because there is no subscription to the redhat repo.
+but cannot run `yum install memcached` etc. because there is no subscription to the redhat repo.
 
 == Usage
 
