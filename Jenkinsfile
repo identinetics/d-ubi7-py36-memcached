@@ -12,7 +12,7 @@ pipeline {
                          nocacheopt='--no-cache'
                          echo 'build with option nocache'
                     fi
-                    docker build $nocacheopt -t intra/ubi8-py36-memcached .
+                    docker build $nocacheopt -t intra/ubi7-py36-memcached .
                 '''
             }
         }
@@ -24,8 +24,8 @@ pipeline {
                 sh '''
                     if [[ "$DOCKER_REGISTRY_USER" ]]; then
                         echo "Docker registry user: $DOCKER_REGISTRY_USER"   # defined in Jenkins env
-                        docker tag intra/centos7_py37_base $DOCKER_REGISTRY_USER/centos7_py37_base
-                        docker push $DOCKER_REGISTRY_USER/centos7_py37_base
+                        docker tag intra/ubi7-py36-memcached $DOCKER_REGISTRY_USER/ubi7-py36-memcached
+                        docker push $DOCKER_REGISTRY_USER/ubi7-py36-memcached
                     else
                         echo 'DOCKER_REGISTRY_USER not defined - cannot push image'
                     fi

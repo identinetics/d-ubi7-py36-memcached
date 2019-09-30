@@ -28,12 +28,14 @@ Create a Jenkins job that will update this image on a regular basis (e.g. daily)
 
     # OR
 
+    rm -f /tmp/ubi7-py36-memcached.img
     podman image save -o /tmp/ubi7-py36-memcached.img intra/ubi7-py36-memcached
     scp  /tmp/ubi7-py36-memcached.img intra/ubi7-py36-memcached r2h2@devl11:/tmp/
 
     # @devl11
+    docker rmi intra/ubi7-py36-memcached localhost/intra/ubi7-py36-memcached
     docker load -i /tmp/ubi7-py36-memcached.img
-    docker tag docker.io/r2h2/ubi7-py36-memcached intra/ubi7-py36-memcached
+    docker tag localhost/intra/ubi7-py36-memcached intra/ubi7-py36-memcached
 
 == Status
 
